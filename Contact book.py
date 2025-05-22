@@ -1,6 +1,6 @@
 import csv
 
-with open("contactbooky.csv", "w", newline="") as f:
+with open("contactbooky.csv", "a", newline="") as f:
     writer = csv.writer(f)
     f.seek(0, 2)
     if f.tell() == 0:
