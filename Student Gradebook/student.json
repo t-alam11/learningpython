@@ -1,0 +1,16 @@
+[
+    {
+        "name": "tahmid",
+        "id": 1,
+        "grade": [
+            {
+                "subject": "maths",
+                "grade": "60"
+            },
+            {
+                "subject": "science",
+                "grade": "90"
+            }
+        ]
+    }
+]

@@ -27,23 +27,23 @@ while True:
         year=input("Enter movie year: ")
         if_watched= input("Enter if you have watched this movie(y/n): ").lower()
         movie = {"title": title, "year": year, "if_watched": if_watched}
-        with open("movie.json","r") as f:
+        with open("movie.json", "r") as f:
             currData=json.load(f)
             oldList = []
             oldList.append(currData)
             oldList.append(movie)
-            with open("movie.json","w") as f:
+            with open("movie.json", "w") as f:
                 json.dump(oldList,f,indent=4)
             print("Movie added\n")
 
     elif choice=="2":
-        with open("movie.json","r") as f:
+        with open("movie.json", "r") as f:
             currData=json.load(f)
             print(currData)
 
     elif choice=="3":
         title=input("Enter movie title: ").capitalize()
-        with open("movie.json","r") as f:
+        with open("movie.json", "r") as f:
             currData=json.load(f)
             for movie in currData:
                 if "title" in movie and movie["title"]==title:
@@ -51,13 +51,13 @@ while True:
 
     elif choice=="4":
         title=input("Enter movie title: ").capitalize()
-        with open("movie.json","r") as f:
+        with open("movie.json", "r") as f:
             currData=json.load(f)
         newList=[]
         for movie in currData:
             if "title" in movie and movie["title"] !=title:
                 newList.append(movie)
-        with open("movie.json","w") as f:
+        with open("movie.json", "w") as f:
             json.dump(newList,f,indent=4)
             print("Movie deleted\n")
 
@@ -69,7 +69,7 @@ while True:
             if "title" in movie and movie["title"]==title:
                 movie["if_watched"]="y"
 
-        with open("movie.json","w") as f:
+        with open("movie.json", "w") as f:
             json.dump(movie,f,indent=4)
             print("Movie changed to watched\n")
 

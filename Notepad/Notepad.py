@@ -2,7 +2,7 @@ import json
 
 notes_json={}
 
-with open("notes.json","w") as f:
+with open("notes.json", "w") as f:
     json.dump(notes_json,f,indent=4)
 
 def notepad():
@@ -24,7 +24,7 @@ while True:
             "title": title,
             "content": content
         }
-        with open("notes.json","r") as f:
+        with open("notes.json", "r") as f:
          checkData = json.load(f)
         newList = []
         newList.append(checkData)
@@ -44,26 +44,26 @@ while True:
                 print("New note added")
 
     elif choice == "2":
-        with open("notes.json","r") as f:
+        with open("notes.json", "r") as f:
             currentData = json.load(f)
             print(currentData)
 
     elif choice == "3":
         deleteTitle= input("Enter the title of the note you want to delete: ").lower()
         newList = []
-        with open("notes.json","r") as f:
+        with open("notes.json", "r") as f:
             currentData = json.load(f)
         for note in currentData:
             if "title" in note and note["title"].strip() != deleteTitle:
                 newList.append(note)
 
-        with open("notes.json","w") as f:
+        with open("notes.json", "w") as f:
             json.dump(newList, f, indent=4)
             print("Note deleted")
 
     elif choice == "4":
         searchNote= input("Enter the note you want to search: ").lower()
-        with open("notes.json","r") as f:
+        with open("notes.json", "r") as f:
             currentData = json.load(f)
         for note in currentData:
             if "title" in note and note["title"].strip() == searchNote:
